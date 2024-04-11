@@ -7,7 +7,7 @@ filepattern = "Kp(?<Kp>\d+(?:\.\d+)?)_Ki(?<Ki>\d+(?:\.\d+)?)_Kd(?<Kd>\d+(?:\.\d+
 for i = 1:length(allfiles)
     file = allfiles(i);
     tokens = regexp(file.name, filepattern, "names");
-    data = readmatrix(file.name);
+    data = readmatrix(sprintf('./data/%s', file.name));
     plotdata(data);
     title(sprintf("Kp = %s, Ki = %s, Kd = %s", tokens.Kp, tokens.Ki, tokens.Kd));
 end
